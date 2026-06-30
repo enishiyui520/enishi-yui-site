@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>緣分查詢 ｜ 緣結 ENISHI YUI</title>
+<meta name="description" content="緣結會所・緣分（忠誠點數）查詢與結緣排行榜。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64'%3E%3Cg fill='none' stroke='%23e0455a' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z'/%3E%3Cpath d='M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z'/%3E%3C/g%3E%3Ccircle cx='60' cy='32' r='8' fill='%23e0455a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Maru+Gothic:wght@400;500;700&family=Klee+One:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#fbf3ea;--paper:#fffaf4;--ink:#5a444c;--ink-soft:#8a7079;
+    --red:#e0455a;--red-d:#c0364a;--red-soft:#f6cdd2;--gold:#a9772b;--line:#efe2d6;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:radial-gradient(900px 620px at 84% -8%,#fde2db,transparent 60%),
+      radial-gradient(760px 520px at 6% 104%,#fdeede,transparent 60%),var(--cream);
+    color:var(--ink);font-family:"Zen Maru Gothic","Noto Sans TC",sans-serif;letter-spacing:.02em;
+    min-height:100vh;padding:30px 0 60px;}
+  .mincho{font-family:"Shippori Mincho","Noto Serif TC",serif;}
+  a{color:inherit;text-decoration:none;}
+  .page{position:relative;max-width:440px;margin:0 auto;padding:0 22px;}
+  .cord{position:absolute;left:50%;transform:translateX(-50%);top:60px;bottom:60px;width:90px;z-index:0;opacity:.18;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 170'%3E%3Cpath d='M45 0 C82 28 80 54 45 72 C66 86 70 104 45 118 C20 132 24 150 45 170' fill='none' stroke='%23e0455a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y center top;background-size:90px 170px;}
+  .stage{position:relative;z-index:1;}
+  header{text-align:center;margin-bottom:22px;}
+  .bow{width:46px;color:var(--red);filter:drop-shadow(0 4px 7px rgba(224,69,90,.25));}
+  .eyebrow{font-family:"Klee One",sans-serif;letter-spacing:.28em;font-size:12px;color:var(--gold);margin:6px 0 4px;}
+  h1{font-size:clamp(40px,11vw,56px);font-weight:800;line-height:1;color:var(--ink);letter-spacing:.06em;}
+  h1 .b{color:var(--red);}
+  .tag{margin-top:12px;font-size:13.5px;color:var(--ink);}
+  .search{position:relative;z-index:1;display:flex;gap:9px;margin:4px 0 18px;}
+  .search input{flex:1;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px;
+    background:var(--paper);color:var(--ink);font-family:inherit;outline:none;transition:.2s;}
+  .search input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(224,69,90,.12);}
+  .search button{border:none;border-radius:14px;padding:0 22px;font-size:15px;font-weight:700;cursor:pointer;
+    background:linear-gradient(135deg,var(--red),var(--red-d));color:#fff;font-family:inherit;transition:.2s;}
+  .search button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(224,69,90,.25);}
+  .card{position:relative;z-index:1;background:var(--paper);border:1.5px solid var(--line);border-radius:20px;
+    padding:24px 20px;text-align:center;margin-bottom:22px;box-shadow:0 14px 38px rgba(190,120,120,.1);}
+  .card .rname{font-family:"Shippori Mincho",serif;font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px;}
+  .card .big{font-family:"Shippori Mincho",serif;font-weight:800;font-size:46px;color:var(--red);line-height:1.1;}
+  .card .big span{font-size:18px;color:var(--ink-soft);font-weight:500;margin-left:4px;}
+  .card .sub{margin-top:8px;font-size:13px;color:var(--ink-soft);line-height:1.7;}
+  .hidden{display:none;}
+  .board{position:relative;z-index:1;}
+  .seclabel{font-family:"Klee One",sans-serif;letter-spacing:.22em;font-size:12px;color:var(--gold);text-align:center;margin-bottom:12px;}
+  ol#board{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  ol#board li{display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);
+    border-radius:13px;padding:11px 15px;}
+  ol#board li .rk{flex:0 0 26px;height:26px;border-radius:8px;background:var(--cream);color:var(--red);
+    font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;}
+  ol#board li:nth-child(1) .rk{background:var(--red);color:#fff;}
+  ol#board li:nth-child(2) .rk,ol#board li:nth-child(3) .rk{background:var(--red-soft);color:var(--red-d);}
+  ol#board li .nm{flex:1;font-weight:500;font-size:14.5px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  ol#board li .pt{font-family:"Shippori Mincho",serif;font-weight:700;font-size:14px;color:var(--red);}
+  .note{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:14px;line-height:1.7;}
+  footer{position:relative;z-index:1;text-align:center;margin-top:30px;}
+  footer .m{font-family:"Shippori Mincho",serif;font-size:11.5px;color:var(--ink-soft);letter-spacing:.12em;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="cord" aria-hidden="true"></div>
+  <div class="stage">
+    <header>
+      <svg class="bow" viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg>
+      <div class="eyebrow">緣結會所 ・ 點數查詢</div>
+      <h1 class="mincho">緣<span class="b">分</span>查詢</h1>
+      <p class="tag">輸入你的 YouTube 名稱，看看跟緣結結了多少<span style="color:var(--red)">緣分</span> 🎀</p>
+    </header>
+
+    <div class="search">
+      <input id="name" placeholder="你的 YouTube 名稱" autocomplete="off">
+      <button id="go">查詢</button>
+    </div>
+    <div id="result" class="card hidden"></div>
+
+    <section class="board">
+      <div class="seclabel">結緣排行 ・ TOP 10</div>
+      <ol id="board"></ol>
+      <div class="note" id="note"></div>
+    </section>
+
+    <footer><div class="m">© 2026 緣結 ・ ENISHI YUI</div></footer>
+  </div>
+</div>
+
+<script>
+  // ===== 設定：填入你的 StreamElements 頻道名稱或ID =====
+  // 取得方式：登入 streamelements.com → 右上頭像 → My Account，
+  // 或直接用你 SE 連的「YouTube 頻道名稱」即可（程式會自動換成 ID）。
+  const SE_CHANNEL = "PUT_SE_CHANNEL";
+
+  const API = "https://api.streamelements.com/kappa/v2";
+  let channelId = null;
+  const esc = s => (s+"").replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+
+  async function resolveChannel(){
+    if (SE_CHANNEL === "PUT_SE_CHANNEL") return null;
+    if (/^[0-9a-f]{24}$/i.test(SE_CHANNEL)) return SE_CHANNEL;
+    try { const r = await fetch(`${API}/channels/${encodeURIComponent(SE_CHANNEL)}`); const d = await r.json(); return d._id || null; }
+    catch(e){ return null; }
+  }
+
+  async function loadBoard(){
+    const note = document.getElementById('note');
+    const id = channelId || (channelId = await resolveChannel());
+    if (!id){ note.textContent = "（管理員：請在 points.html 裡把 SE_CHANNEL 設成你的 StreamElements 頻道）"; return; }
+    try{
+      const r = await fetch(`${API}/points/${id}/top/alltime/10`);
+      const d = await r.json();
+      const list = d.leaderboard || d.users || (Array.isArray(d) ? d : []);
+      const ol = document.getElementById('board'); ol.innerHTML = "";
+      if (!list.length){ note.textContent = "還沒有人累積緣分～開台聊天就會開始囉 🎀"; return; }
+      list.forEach((u,i)=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<span class="rk">${i+1}</span><span class="nm">${esc(u.username)}</span><span class="pt">${u.points} 緣分</span>`;
+        ol.appendChild(li);
+      });
+    }catch(e){ note.textContent = "排行榜暫時讀取不到，稍後再試。"; }
+  }
+
+  async function query(){
+    const name = document.getElementById('name').value.trim();
+    const res = document.getElementById('result');
+    if (!name){ return; }
+    const id = channelId || (channelId = await resolveChannel());
+    res.classList.remove('hidden');
+    if (!id){ res.innerHTML = "⚠️ 尚未設定頻道，請聯絡管理員。"; return; }
+    res.innerHTML = "查詢中…";
+    try{
+      const r = await fetch(`${API}/points/${id}/${encodeURIComponent(name)}`);
+      if (!r.ok) throw 0;
+      const d = await r.json();
+      const pts = (d.points != null ? d.points : 0);
+      const hrs = Math.round((d.watchtime || 0) / 60);
+      res.innerHTML = `<div class="rname">${esc(name)}</div>
+        <div class="big">${pts}<span>緣分</span></div>
+        <div class="sub">結緣排名 #${d.rank != null ? d.rank : "—"} ・ 累積觀看 ${hrs} 小時</div>`;
+    }catch(e){
+      res.innerHTML = `<div class="rname">${esc(name)}</div>
+        <div class="sub">還沒有緣分紀錄～來直播聊天室待一下、聊個天就開始累積囉 🎀<br>（名稱要跟你在直播聊天室顯示的一樣喔）</div>`;
+    }
+  }
+
+  document.getElementById('go').onclick = query;
+  document.getElementById('name').addEventListener('keydown', e => { if (e.key === 'Enter') query(); });
+  loadBoard();
+</script>
+</body>
+</html>
