@@ -4,16 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>緣結 ENISHI YUI ｜ 縁結びの神様</title>
-<meta name="description" content="日本結緣神 VTuber・緣結（えにし ゆい）。">
+<meta name="description" content="日本結緣神 VTuber・緣結（えにし ゆい）官方頁。YouTube 直播、Discord 社群、最新消息一站連結。">
+<!-- 分享預覽（貼到 X / Discord / LINE 會出卡片）。部署後請把 og:url 換成實際網址；有主視覺圖再補 og:image 絕對網址 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="緣結 ENISHI YUI ・ 縁結びの神様">
+<meta property="og:description" content="日本結緣神 VTuber・緣結（えにし ゆい）。幫你繫起好緣分。YouTube / Discord 都在這。">
+<!-- <meta property="og:url" content="https://你的網址/"> -->
+<!-- <meta property="og:image" content="https://你的網址/og.png"> 1200×630 -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="緣結 ENISHI YUI ・ 縁結びの神様">
+<meta name="twitter:description" content="日本結緣神 VTuber・緣結（えにし ゆい）。幫你繫起好緣分。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64'%3E%3Cg fill='none' stroke='%23e0455a' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z'/%3E%3Cpath d='M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z'/%3E%3C/g%3E%3Ccircle cx='60' cy='32' r='8' fill='%23e0455a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Maru+Gothic:wght@400;500;700&family=Klee+One:wght@600&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#fbf3ea; --paper:#fffaf4;
-    --ink:#5a444c; --ink-soft:#a08a92;
+    --ink:#5a444c; --ink-soft:#8a7079;
     --red:#e0455a; --red-d:#c0364a; --red-soft:#f6cdd2;
-    --gold:#cba24f; --line:#efe2d6;
+    --gold:#a9772b; --line:#efe2d6;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -23,10 +33,10 @@
       radial-gradient(760px 520px at 6% 104%, #fdeede, transparent 60%),
       var(--cream);
     color:var(--ink); font-family:"Zen Maru Gothic","Noto Sans TC",sans-serif;
-    letter-spacing:.02em; overflow-x:hidden; padding:34px 0 0;
+    letter-spacing:.02em; overflow-x:hidden; padding:24px 0 0;
   }
-  .mincho{font-family:"Shippori Mincho",serif;}
-  .klee{font-family:"Klee One",cursive;}
+  .mincho{font-family:"Shippori Mincho","Noto Serif TC",serif;}
+  .klee{font-family:"Klee One","Noto Sans TC",sans-serif;}
   ::selection{background:var(--red); color:#fff;}
   a{text-decoration:none; color:inherit;}
 
@@ -37,55 +47,70 @@
   @keyframes fall{0%{transform:translateY(-6vh) rotate(0);opacity:0}12%{opacity:.85}88%{opacity:.85}100%{transform:translateY(108vh) rotate(360deg);opacity:0}}
 
   .page{position:relative; z-index:3; max-width:380px; margin:0 auto; padding:0 22px 0;}
-  /* 蜿蜒紅線（赤い糸・繞著走，沿途打結）*/
+  /* 蜿蜒紅線（赤い糸）— 退成隱約紋理，避免壓住標題 */
   .cord{position:absolute; left:50%; transform:translateX(-50%); top:64px; bottom:96px; width:90px; z-index:0;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 170'%3E%3Cpath d='M45 0 C82 28 80 54 45 72 C66 86 70 104 45 118 C20 132 24 150 45 170' fill='none' stroke='%23e0455a' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y;
-    background-position:center top; background-size:90px 170px; opacity:.8;}
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 170'%3E%3Cpath d='M45 0 C82 28 80 54 45 72 C66 86 70 104 45 118 C20 132 24 150 45 170' fill='none' stroke='%23e0455a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y;
+    background-position:center top; background-size:90px 170px; opacity:.22;}
 
   .stage{position:relative; z-index:2; text-align:center; padding-bottom:26px;}
 
-  .umemusubi{width:74px; height:auto; color:var(--red); filter:drop-shadow(0 5px 9px rgba(224,69,90,.28)); margin-bottom:2px;}
-  .eyebrow{font-family:"Klee One",cursive; letter-spacing:.32em; font-size:11.5px; color:var(--gold); margin-bottom:6px; padding-left:.32em;}
+  .umemusubi{width:64px; height:auto; color:var(--red); filter:drop-shadow(0 5px 9px rgba(224,69,90,.28)); margin-bottom:2px;}
+  .eyebrow{font-family:"Klee One",sans-serif; letter-spacing:.32em; font-size:12px; color:var(--gold); margin-bottom:6px; padding-left:.32em;}
   .name{font-size:clamp(58px,16vw,80px); font-weight:800; line-height:.95; color:var(--ink); letter-spacing:.05em;}
   .name .b{color:var(--red);}
   .furi{margin-top:7px; letter-spacing:.5em; color:var(--ink-soft); font-size:12px; padding-left:.5em;}
-  .tag{margin:12px 0 22px; font-size:13.5px; color:var(--ink); font-weight:500;}
-  .tag .r{color:var(--red);} .tag .h{color:var(--red); font-family:"Klee One",cursive;}
+  .tag{margin:10px 0 18px; font-size:13.5px; color:var(--ink); font-weight:500;}
+  .tag .r{color:var(--red);} .tag .h{color:var(--red); font-family:"Klee One",sans-serif;}
 
-  /* YouTube 主按鈕 */
-  .yt{position:relative; z-index:1; display:flex; align-items:center; gap:13px;
-    background:linear-gradient(135deg,var(--red),var(--red-d)); border:1.5px solid var(--red-d);
-    border-radius:18px; padding:15px 18px; transition:.26s; color:#fff;}
+  /* 主按鈕共用 */
+  .cta{position:relative; z-index:1; display:flex; align-items:center; gap:13px; border-radius:18px;
+    padding:15px 18px; transition:.26s;}
+  .cta .ic{flex:0 0 44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center;}
+  .cta .ic svg{width:26px; height:26px;}
+  .cta .tx{flex:1; text-align:left;}
+  .cta .tx .t{font-family:"Shippori Mincho",serif; font-weight:700; font-size:17px; line-height:1.3;}
+  .cta .tx .d{font-size:11.5px;}
+  .cta .arw{font-size:17px; transition:.26s;}
+  /* YouTube：唯一實心紅（最高優先）*/
+  .yt{background:linear-gradient(135deg,var(--red),var(--red-d)); border:1.5px solid var(--red-d); color:#fff; margin-top:4px;}
+  .yt .ic{background:rgba(255,255,255,.22);} .yt .ic svg{fill:#fff;}
+  .yt .tx .d{color:rgba(255,255,255,.85);}
   .yt:hover{transform:translateY(-3px); box-shadow:0 16px 34px rgba(224,69,90,.26);}
-  .yt .ic{flex:0 0 44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:21px; background:rgba(255,255,255,.25);}
-  .yt .tx{flex:1; text-align:left;}
-  .yt .tx .t{font-family:"Shippori Mincho",serif; font-weight:700; font-size:17px; line-height:1.3;}
-  .yt .tx .d{font-size:11.5px; color:rgba(255,255,255,.85);}
-  .yt .arw{font-size:17px; transition:.26s;} .yt:hover .arw{transform:translateX(4px);}
+  .yt:hover .arw{transform:translateX(4px);}
+  /* Discord：第二 CTA（紅描邊，次於 YouTube）*/
+  .dc{background:var(--paper); border:1.5px solid var(--red); color:var(--ink); margin-top:11px;}
+  .dc .ic{background:var(--red-soft);} .dc .ic svg{fill:var(--red-d);}
+  .dc .tx .d{color:var(--ink-soft);}
+  .dc .arw{color:var(--red);}
+  .dc:hover{transform:translateY(-3px); background:var(--red); color:#fff; box-shadow:0 14px 30px rgba(224,69,90,.2);}
+  .dc:hover .ic{background:rgba(255,255,255,.22);} .dc:hover .ic svg{fill:#fff;}
+  .dc:hover .tx .d{color:rgba(255,255,255,.85);} .dc:hover .arw{color:#fff; transform:translateX(4px);}
 
-  /* SNS：2×2 大按鈕（好點）*/
-  .sgrid{position:relative; z-index:1; margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:11px;}
-  .spill{display:flex; align-items:center; gap:11px; background:var(--paper); border:1.5px solid var(--line);
-    border-radius:15px; padding:13px 14px; transition:.24s; color:var(--ink);}
+  /* SNS 單顆（其他平台之後加） */
+  .spill{position:relative; z-index:1; margin-top:11px; display:flex; align-items:center; justify-content:center; gap:10px;
+    background:var(--paper); border:1.5px solid var(--line); border-radius:15px; padding:13px 14px; transition:.24s; color:var(--ink);}
   .spill:hover{transform:translateY(-3px); border-color:var(--red); color:var(--red); box-shadow:0 12px 26px rgba(224,69,90,.14);}
-  .spill .si{flex:0 0 26px; height:26px; display:flex; align-items:center; justify-content:center;}
-  .spill .si svg{width:19px; height:19px; fill:currentColor;}
+  .spill .si{flex:0 0 22px; height:22px; display:flex; align-items:center; justify-content:center;}
+  .spill .si svg{width:18px; height:18px; fill:currentColor;}
   .spill .sl{font-weight:500; font-size:14.5px;}
+
+  /* 互動回饋（手機按下去有感）*/
+  .cta:active,.spill:active,.credit:active{transform:translateY(0) scale(.985); transition:.08s;}
 
   /* 分隔小蝴蝶結 */
   .tie{position:relative; z-index:1; display:flex; justify-content:center; margin:24px 0 18px;}
   .tie svg{width:40px; color:var(--red); filter:drop-shadow(0 3px 4px rgba(224,69,90,.2));}
 
-  /* 自我介紹（第一屏就看得到）*/
+  /* 自我介紹 */
   .about{position:relative; z-index:1;}
-  .seclabel{font-family:"Klee One",cursive; letter-spacing:.3em; font-size:11.5px; color:var(--gold); text-align:center; margin-bottom:3px;}
+  .seclabel{font-family:"Klee One",sans-serif; letter-spacing:.3em; font-size:12px; color:var(--gold); text-align:center; margin-bottom:3px;}
   .sectitle{font-family:"Shippori Mincho",serif; font-size:22px; font-weight:800; color:var(--ink); text-align:center; margin-bottom:14px;}
   .sectitle .k{color:var(--red);}
   .introcard{background:var(--paper); border:1.5px solid var(--line); border-radius:20px; padding:20px 20px 14px;
     box-shadow:0 14px 38px rgba(190,120,120,.10);}
   .introcard .lead{font-family:"Shippori Mincho",serif; font-size:14.5px; color:var(--ink); line-height:1.9; text-align:center; margin-bottom:16px;}
   .introcard .lead .r{color:var(--red);}
-  .stafflabel{font-family:"Klee One",cursive; font-size:11.5px; color:var(--gold); letter-spacing:.18em; text-align:center; margin-bottom:10px;}
+  .stafflabel{font-family:"Klee One",sans-serif; font-size:11.5px; color:var(--ink-soft); letter-spacing:.18em; text-align:center; margin-bottom:10px;}
   .credits{display:flex; flex-direction:column; gap:9px;}
   .credit{display:flex; align-items:center; gap:11px; background:var(--cream); border:1px solid var(--line); border-radius:13px; padding:10px 13px; transition:.22s;}
   .credit:hover{border-color:var(--red); transform:translateY(-2px); box-shadow:0 8px 18px rgba(224,69,90,.12);}
@@ -96,93 +121,92 @@
   .credit .cw .nm{font-family:"Shippori Mincho",serif; font-weight:700; font-size:14px; color:var(--ink);}
   .credit .cw .hd{font-size:11px; color:var(--ink-soft); margin-left:4px;}
 
-  /* 斗內（最下面）*/
-  .donate{position:relative; z-index:1;}
-  .dbtn{display:flex; align-items:center; gap:13px; background:var(--paper); border:2px solid var(--red);
-    border-radius:18px; padding:15px 18px; transition:.26s; color:var(--ink);}
-  .dbtn:hover{transform:translateY(-3px); background:var(--red); color:#fff; box-shadow:0 16px 32px rgba(224,69,90,.22);}
-  .dbtn .ic{flex:0 0 44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:21px; background:var(--red-soft); transition:.26s;}
-  .dbtn:hover .ic{background:rgba(255,255,255,.25);}
-  .dbtn .tx{flex:1; text-align:left;}
-  .dbtn .tx .t{font-family:"Shippori Mincho",serif; font-weight:700; font-size:17px;}
-  .dbtn .tx .d{font-size:11.5px; color:var(--ink-soft);} .dbtn:hover .tx .d{color:rgba(255,255,255,.85);}
-  .dbtn .arw{font-size:17px; color:var(--red); transition:.26s;} .dbtn:hover .arw{color:#fff; transform:translateX(4px);}
-
   footer{position:relative; z-index:1; text-align:center; padding:26px 0 46px;}
   .bow{width:40px; height:auto; color:var(--red); opacity:.9; margin-bottom:8px;}
   footer .m{font-family:"Shippori Mincho",serif; font-size:11.5px; color:var(--ink-soft); letter-spacing:.14em;}
+
+  @media (prefers-reduced-motion:reduce){ .sakura{display:none;} html{scroll-behavior:auto;} }
 </style>
 </head>
 <body>
-<svg class="sakura" style="left:9%;  width:18px; animation-duration:14s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
-<svg class="sakura" style="left:82%; width:14px; animation-duration:18s; animation-delay:5s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
+<svg class="sakura" aria-hidden="true" style="left:9%;  width:18px; animation-duration:14s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
+<svg class="sakura" aria-hidden="true" style="left:82%; width:14px; animation-duration:18s; animation-delay:5s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
 
 <div class="page">
-  <div class="cord"></div>
+  <div class="cord" aria-hidden="true"></div>
 
   <div class="stage">
-    <svg class="umemusubi" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">
+    <svg class="umemusubi" aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">
       <path d="M60 60 C60 30 42 28 42 44 C42 56 56 58 60 60"/><path d="M60 60 C82 39 80 21 67 28 C57 33 58 50 60 60"/>
       <path d="M60 60 C90 60 92 78 76 78 C64 78 62 64 60 60"/><path d="M60 60 C68 89 52 96 49 81 C47 70 56 62 60 60"/>
       <path d="M60 60 C31 67 26 50 41 47 C52 45 58 56 60 60"/><circle cx="60" cy="60" r="6" fill="currentColor" stroke="none"/>
     </svg>
-    <div class="eyebrow">えにし ゆい ・ 縁結びの神様</div>
+    <div class="eyebrow" lang="ja">縁結びの神様</div>
     <h1 class="name mincho">緣<span class="b">結</span></h1>
-    <div class="furi mincho">え　に　し　ゆ　い</div>
+    <div class="furi mincho" lang="ja">え　に　し　ゆ　い</div>
     <p class="tag">日本來的<span class="r">結緣神</span>・實習生<span class="h"> ♪</span> 幫你繫起好<span class="r">緣分</span></p>
   </div>
 
-  <!-- YouTube -->
-  <a class="yt" href="https://www.youtube.com/@%E7%B8%81%E7%B5%90-EnishiYui" target="_blank" rel="noopener">
-    <span class="ic">▶</span><span class="tx"><div class="t">YouTube</div><div class="d">直播・影片・第一手日常</div></span><span class="arw">→</span>
+  <!-- YouTube（主 CTA）-->
+  <a class="cta yt" href="https://www.youtube.com/@%E7%B8%81%E7%B5%90-EnishiYui" target="_blank" rel="noopener noreferrer" aria-label="緣結 YouTube 頻道">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.2-1.4-.8-2c-.8-.85-1.7-.85-2.1-.9C15.9 4 12 4 12 4h0s-3.9 0-6.7.3c-.4.05-1.3.05-2.1.9-.6.6-.8 2-.8 2S2 8.8 2 10.5v1.5c0 1.7.2 3.3.2 3.3s.2 1.4.8 2c.8.85 1.85.82 2.3.92C7 18.4 12 18.5 12 18.5s3.9 0 6.7-.3c.4-.05 1.3-.05 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.5c0-1.7-.2-3.3-.2-3.3zM10 14.6V8.4l5.2 3.1-5.2 3.1z"/></svg></span>
+    <span class="tx"><div class="t">YouTube</div><div class="d">直播・影片・開台通知</div></span><span class="arw" aria-hidden="true">→</span>
   </a>
 
-  <!-- SNS 大按鈕 2×2 -->
-  <div class="sgrid">
-    <a class="spill" href="https://x.com/enishi_yui" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span><span class="sl">X (Twitter)</span></a>
-    <a class="spill" href="https://www.threads.net/@YOUR_THREADS" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.36-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.85 13.85 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Z"/></svg></span><span class="sl">Threads</span></a>
-    <a class="spill" href="https://www.instagram.com/YOUR_IG" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></span><span class="sl">Instagram</span></a>
-    <a class="spill" href="https://discord.gg/Frq2T3u6nZ" target="_blank" rel="noopener"><span class="si"><svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></span><span class="sl">Discord</span></a>
-  </div>
+  <!-- Discord（第二 CTA：留存與開台通知主場）-->
+  <a class="cta dc" href="https://discord.gg/Frq2T3u6nZ" target="_blank" rel="noopener noreferrer" aria-label="加入緣結 Discord">
+    <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></span>
+    <span class="tx"><div class="t">Discord・結緣會所</div><div class="d">開台通知・嘮嗑・今日運勢</div></span><span class="arw" aria-hidden="true">→</span>
+  </a>
+
+  <!-- X（其他 SNS 之後加；Threads / Instagram 開了帳號再把下面註解打開並填網址）-->
+  <a class="spill" href="https://x.com/enishi_yui" target="_blank" rel="noopener noreferrer" aria-label="緣結 X (Twitter)">
+    <span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span><span class="sl">X (Twitter)</span>
+  </a>
+  <!--
+  <a class="spill" href="https://www.threads.net/@填這裡" target="_blank" rel="noopener noreferrer" aria-label="緣結 Threads"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.36-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.85 13.85 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Z"/></svg></span><span class="sl">Threads</span></a>
+  <a class="spill" href="https://www.instagram.com/填這裡" target="_blank" rel="noopener noreferrer" aria-label="緣結 Instagram"><span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></span><span class="sl">Instagram</span></a>
+  -->
 
   <!-- 蝴蝶結分隔 -->
-  <div class="tie"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg></div>
+  <div class="tie" aria-hidden="true"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg></div>
 
   <!-- 自我介紹 -->
   <section class="about">
-    <div class="seclabel">about ・ 縁起</div>
+    <div class="seclabel" lang="ja">about ・ 縁起</div>
     <div class="sectitle mincho">關於<span class="k">緣</span>結</div>
     <div class="introcard">
       <p class="lead">日本來的<span class="r">結緣神・實習生</span>。<br>把這世上每一段美好的緣分，<br>輕輕地，為你繫成一個<span class="r">結</span>。</p>
-      <div class="stafflabel">― 感謝名單 ―</div>
+      <div class="stafflabel">Special Thanks</div>
       <div class="credits">
-        <a class="credit" href="https://x.com/molamola0208" target="_blank" rel="noopener">
-          <span class="xic"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
-          <span class="cw"><div class="role">キャラクターデザイン ・ 角色設計</div><div><span class="nm">mola mola</span><span class="hd">@molamola0208</span></div></span>
+        <a class="credit" href="https://x.com/molamola0208" target="_blank" rel="noopener noreferrer" aria-label="角色設計 mola mola 的 X">
+          <span class="xic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+          <span class="cw"><div class="role"><span lang="ja">キャラクターデザイン</span> ・ 角色設計</div><div><span class="nm">mola mola</span><span class="hd">@molamola0208</span></div></span>
         </a>
-        <a class="credit" href="https://x.com/salmoninthebox" target="_blank" rel="noopener">
-          <span class="xic"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
-          <span class="cw"><div class="role">エモート・スタンプ ・ 表情貼圖設計</div><div><span class="nm">salmon</span><span class="hd">@salmoninthebox</span></div></span>
+        <a class="credit" href="https://x.com/salmoninthebox" target="_blank" rel="noopener noreferrer" aria-label="表情貼圖設計 salmon 的 X">
+          <span class="xic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+          <span class="cw"><div class="role"><span lang="ja">エモート・スタンプ</span> ・ 表情貼圖設計</div><div><span class="nm">salmon</span><span class="hd">@salmoninthebox</span></div></span>
         </a>
-        <a class="credit" href="https://x.com/pale_pico" target="_blank" rel="noopener">
-          <span class="xic"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
-          <span class="cw"><div class="role">Live2D モデリング</div><div><span class="nm">pale pico</span><span class="hd">@pale_pico</span></div></span>
+        <a class="credit" href="https://x.com/pale_pico" target="_blank" rel="noopener noreferrer" aria-label="Live2D 模型 pale pico 的 X">
+          <span class="xic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span>
+          <span class="cw"><div class="role"><span lang="ja">Live2D モデリング</span></div><div><span class="nm">pale pico</span><span class="hd">@pale_pico</span></div></span>
         </a>
       </div>
     </div>
   </section>
 
-  <div class="tie"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg></div>
-
-  <!-- 斗內（最下面）-->
+  <!-- 斗內按鈕：開了收款連結再把這段打開並填網址（出道初期先收起來）
+  <div class="tie" aria-hidden="true"><svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg></div>
   <section class="donate">
-    <a class="dbtn" href="https://YOUR_DONATE_LINK" target="_blank" rel="noopener">
-      <span class="ic">🎀</span><span class="tx"><div class="t">斗內・支援緣結</div><div class="d">為這段緣分，繫上一份心意</div></span><span class="arw">→</span>
+    <a class="cta dc" href="填收款網址" target="_blank" rel="noopener noreferrer" aria-label="斗內支援緣結">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 120 64" fill="none" stroke="var(--red-d)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="var(--red-d)" stroke="none"/></svg></span>
+      <span class="tx"><div class="t">斗內・支援緣結</div><div class="d">為這段緣分，繫上一份心意</div></span><span class="arw" aria-hidden="true">→</span>
     </a>
   </section>
+  -->
 
   <footer>
-    <svg class="bow" viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg>
+    <svg class="bow" aria-hidden="true" viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M60 32 C40 8 8 10 16 32 C8 54 40 56 60 32Z"/><path d="M60 32 C80 8 112 10 104 32 C112 54 80 56 60 32Z"/><circle cx="60" cy="32" r="7" fill="currentColor" stroke="none"/><path d="M57 38 L46 62 M63 38 L74 62"/></svg>
     <div class="m">© 2026 緣結 ・ ENISHI YUI</div>
   </footer>
 </div>
