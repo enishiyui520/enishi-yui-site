@@ -121,6 +121,15 @@
   .credit .cw .nm{font-family:"Shippori Mincho",serif; font-weight:700; font-size:14px; color:var(--ink);}
   .credit .cw .hd{font-size:11px; color:var(--ink-soft); margin-left:4px;}
 
+  /* プロフィール（御縁書）*/
+  .profile{margin:4px 0 14px; border-top:1px dashed var(--line);}
+  .prow{display:flex; gap:10px; padding:9px 2px; border-bottom:1px dashed var(--line); font-size:13px;}
+  .prow .pk{flex:0 0 78px; color:var(--red); font-weight:700; font-family:"Klee One",sans-serif; letter-spacing:.05em;}
+  .prow .pv{flex:1; color:var(--ink); line-height:1.55;}
+  .prow .pv .dot{display:inline-block; width:11px; height:11px; border-radius:50%; background:var(--red); vertical-align:-1px; margin-right:6px; box-shadow:0 0 0 3px var(--red-soft);}
+  .ptags{display:flex; flex-wrap:wrap; gap:7px; justify-content:center; margin:14px 0 4px;}
+  .ptag{font-size:11.5px; color:var(--red-d); background:var(--red-soft); border-radius:999px; padding:5px 12px; font-weight:600; font-family:"Klee One",sans-serif;}
+
   footer{position:relative; z-index:1; text-align:center; padding:26px 0 46px;}
   .bow{width:40px; height:auto; color:var(--red); opacity:.9; margin-bottom:8px;}
   footer .m{font-family:"Shippori Mincho",serif; font-size:11.5px; color:var(--ink-soft); letter-spacing:.14em;}
@@ -177,6 +186,24 @@
     <div class="sectitle mincho">關於<span class="k">緣</span>結</div>
     <div class="introcard">
       <p class="lead">日本來的<span class="r">結緣神・實習生</span>。<br>把這世上每一段美好的緣分，<br>輕輕地，為你繫成一個<span class="r">結</span>。</p>
+
+      <div class="profile">
+        <div class="prow"><span class="pk" lang="ja">種族</span><span class="pv">結緣神的實習生 ― 專門幫人繫緣分的神明蛋</span></div>
+        <div class="prow"><span class="pk" lang="ja">活動</span><span class="pv">日本 × 台灣 ― 兩邊來回，當台日之間的一條赤線</span></div>
+        <div class="prow"><span class="pk" lang="ja">言語</span><span class="pv">日本語 / 中文（繁體）/ English</span></div>
+        <div class="prow"><span class="pk" lang="ja">推し色</span><span class="pv"><span class="dot"></span>朱（あか）</span></div>
+        <div class="prow"><span class="pk" lang="ja">好きなもの</span><span class="pv">台灣小吃・小酌一杯・跟大家嘮嗑</span></div>
+        <div class="prow"><span class="pk" lang="ja">御守り</span><span class="pv">紅色和風蝴蝶結・薔薇髮飾</span></div>
+      </div>
+
+      <div class="ptags" aria-label="配信內容">
+        <span class="ptag">結緣占卜</span>
+        <span class="ptag">雜談</span>
+        <span class="ptag">遊戲實況</span>
+        <span class="ptag">歌回</span>
+        <span class="ptag">台日文化</span>
+      </div>
+
       <div class="stafflabel">Special Thanks</div>
       <div class="credits">
         <a class="credit" href="https://x.com/molamola0208" target="_blank" rel="noopener noreferrer" aria-label="角色設計 mola mola 的 X">
