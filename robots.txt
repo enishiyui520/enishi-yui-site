@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enishiyui520.github.io/enishi-yui-site/sitemap.xml
