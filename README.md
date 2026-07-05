@@ -1,6 +1,6 @@
 # 緣結 ENISHI YUI 🎀
-ご縁を結ぶ神社の見習い神様、縁結です。
-https://enishiyui520.github.io/enishi-yui-site/
+ご縁を結ぶ神社の見習い神様、縁結です。<br>
+https://enishiyui520.github.io/enishi-yui-site/ <br>
 ここまで見つけてくれて、応援してくれて――
 出会えたこと、それ自体がわたしの一番のご縁。
 本当に、本当にありがとう。
