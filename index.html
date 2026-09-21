@@ -83,6 +83,14 @@
   ::selection{background:var(--red); color:#fff;}
   a{text-decoration:none; color:inherit;}
 
+  /* 背景影片（無聲循環）*/
+  .bgv{position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+    background:url("assets/bg-poster.jpg") center 45%/cover no-repeat;}
+  .bgv video{width:100%; height:100%; object-fit:cover; object-position:30% 48%; display:block;}
+  .bgv::after{content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(to bottom, rgba(251,243,234,.52), rgba(251,243,234,.66) 42%, rgba(251,243,234,.88));}
+
   body::after{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.04;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
@@ -95,7 +103,14 @@
     background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 170'%3E%3Cpath d='M45 0 C82 28 80 54 45 72 C66 86 70 104 45 118 C20 132 24 150 45 170' fill='none' stroke='%23e0455a' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") repeat-y;
     background-position:center top; background-size:90px 170px; opacity:.22;}
 
-  .stage{position:relative; z-index:2; text-align:center; padding-bottom:26px;}
+  .stage{position:relative; z-index:2; text-align:center; padding:20px 16px 24px; margin-bottom:4px;
+    background:linear-gradient(180deg, rgba(255,250,244,.68), rgba(255,250,244,.42));
+    -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px);
+    border-radius:26px; border:1px solid rgba(255,255,255,.55);}
+
+  .logo{display:block; width:min(268px,78%); height:auto; margin:0 auto 4px;
+    filter:drop-shadow(0 6px 14px rgba(190,120,120,.22));}
+  h1.name{margin:0;}
 
   .umemusubi{width:64px; height:auto; color:var(--red); filter:drop-shadow(0 5px 9px rgba(224,69,90,.28)); margin-bottom:2px;}
   .eyebrow{font-family:"Klee One",sans-serif; letter-spacing:.32em; font-size:12px; color:var(--gold); margin-bottom:6px; padding-left:.32em;}
@@ -177,10 +192,67 @@
   .bow{width:40px; height:auto; color:var(--red); opacity:.9; margin-bottom:8px;}
   footer .m{font-family:"Shippori Mincho",serif; font-size:11.5px; color:var(--ink-soft); letter-spacing:.14em;}
 
-  @media (prefers-reduced-motion:reduce){ .sakura{display:none;} html{scroll-behavior:auto;} }
+  /* 三面図（角色設定）卡片 */
+  .sheetcard{position:relative; z-index:1; display:block; width:100%; margin-top:11px; text-align:left;
+    background:var(--paper); border:1.5px solid var(--red); border-radius:18px; padding:12px; cursor:pointer;
+    font-family:inherit; color:var(--ink); transition:.26s;}
+  .sheetcard:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(224,69,90,.2);}
+  .sheetcard:active{transform:translateY(0) scale(.985); transition:.08s;}
+  .sheetcard .shot{display:block; width:100%; height:112px; object-fit:cover; object-position:center 22%;
+    border-radius:12px; background:#fff; border:1px solid var(--line);}
+  .sheetcard .row{display:flex; align-items:center; gap:10px; padding:11px 4px 2px;}
+  .sheetcard .row .tx{flex:1;}
+  .sheetcard .row .t{display:block; font-family:"Shippori Mincho",serif; font-weight:700; font-size:16px; line-height:1.3;}
+  .sheetcard .row .d{display:block; font-size:11.5px; color:var(--ink-soft); margin-top:3px;}
+  .sheetcard .row .arw{color:var(--red); font-size:17px; transition:.26s;}
+  .sheetcard:hover .row .arw{transform:translateX(4px);}
+
+  /* 三面図 燈箱 */
+  .lb{position:fixed; inset:0; z-index:50; display:none; background:rgba(60,44,50,.88);
+    -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);}
+  .lb.on{display:block;}
+  .lb .scroller{position:absolute; inset:0; overflow:auto; -webkit-overflow-scrolling:touch;
+    display:flex; align-items:center; justify-content:center; padding:56px 12px 64px;}
+  .lb img{display:block; max-width:100%; max-height:100%; width:auto; height:auto;
+    background:#fff; border-radius:10px; box-shadow:0 22px 60px rgba(0,0,0,.4); transition:none;}
+  .lb.zoom .scroller{display:block; align-items:initial;}
+  .lb.zoom img{max-width:none; max-height:none; width:1800px; cursor:zoom-out; margin:0 auto;}
+  .lb:not(.zoom) img{cursor:zoom-in;}
+  .lb .bar{position:absolute; left:0; right:0; top:0; z-index:2; display:flex; align-items:center; gap:10px;
+    padding:12px 14px; color:#fff; background:linear-gradient(rgba(60,44,50,.6), transparent);}
+  .lb .bar .ttl{flex:1; font-family:"Shippori Mincho",serif; font-size:14px; letter-spacing:.06em;}
+  .lb .bar .ttl small{display:block; font-family:"Zen Maru Gothic",sans-serif; font-size:11px; opacity:.72; letter-spacing:.02em; margin-top:2px;}
+  .lb .bar button{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.34); color:#fff;
+    border-radius:10px; font-size:13px; font-family:inherit; padding:7px 12px; cursor:pointer; transition:.2s;}
+  .lb .bar button:hover{background:var(--red); border-color:var(--red);}
+  .lb .hint{position:absolute; left:0; right:0; bottom:0; text-align:center; color:rgba(255,255,255,.72);
+    font-size:11.5px; letter-spacing:.1em; padding:12px 14px 16px; background:linear-gradient(transparent, rgba(60,44,50,.6));}
+  body.lbopen{overflow:hidden;}
+
+  /* 影片背景上的文字加一層米色暈，確保可讀 */
+  .seclabel,.sectitle,.furi,.tag,.eyebrow,footer .m{text-shadow:0 1px 10px rgba(255,250,244,.95), 0 0 24px rgba(255,250,244,.85);}
+
+  /* 桌機：把內容欄推到右邊，左邊留給影片裡的緣結 */
+  @media (min-width:900px){
+    .page{margin-left:auto; margin-right:9vw;}
+    .bgv video{object-position:22% 44%;}
+    .bgv::after{background:linear-gradient(to right, rgba(251,243,234,.26) 0%, rgba(251,243,234,.40) 32%,
+      rgba(251,243,234,.86) 60%, rgba(251,243,234,.94) 100%);}
+    .lb.zoom img{width:2400px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){ .sakura{display:none;} html{scroll-behavior:auto;} .bgv video{display:none;} }
 </style>
 </head>
 <body>
+<!-- 背景循環影片（靜音、無 BGM）-->
+<div class="bgv" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/bg-poster.jpg" disablepictureinpicture>
+    <source src="assets/bg-loop.webm" type="video/webm">
+    <source src="assets/bg-loop.mp4" type="video/mp4">
+  </video>
+</div>
+
 <svg class="sakura" aria-hidden="true" style="left:9%;  width:18px; animation-duration:14s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
 <svg class="sakura" aria-hidden="true" style="left:82%; width:14px; animation-duration:18s; animation-delay:5s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 2 1.5 5 0 7-1.5-2-1.5-5 0-7zm0 20c-1.5-2-1.5-5 0-7 1.5 2 1.5 5 0 7zM2 12c2-1.5 5-1.5 7 0-2 1.5-5 1.5-7 0zm20 0c-2 1.5-5 1.5-7 0 2-1.5 5-1.5 7 0z"/></svg>
 
@@ -188,13 +260,8 @@
   <div class="cord" aria-hidden="true"></div>
 
   <div class="stage">
-    <svg class="umemusubi" aria-hidden="true" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">
-      <path d="M60 60 C60 30 42 28 42 44 C42 56 56 58 60 60"/><path d="M60 60 C82 39 80 21 67 28 C57 33 58 50 60 60"/>
-      <path d="M60 60 C90 60 92 78 76 78 C64 78 62 64 60 60"/><path d="M60 60 C68 89 52 96 49 81 C47 70 56 62 60 60"/>
-      <path d="M60 60 C31 67 26 50 41 47 C52 45 58 56 60 60"/><circle cx="60" cy="60" r="6" fill="currentColor" stroke="none"/>
-    </svg>
     <div class="eyebrow" lang="ja">縁結びの神様</div>
-    <h1 class="name mincho">緣<span class="b">結</span></h1>
+    <h1 class="name mincho"><img class="logo" src="assets/logo.png" width="900" height="699" alt="緣結 えにし ゆい Enishi Yui" fetchpriority="high"></h1>
     <div class="furi mincho" lang="ja">え　に　し　ゆ　い</div>
     <p class="tag">日本來的<span class="r">結緣神社</span>・實習神<span class="h"> ♪</span> 幫你繫起好<span class="r">緣分</span></p>
   </div>
@@ -215,6 +282,18 @@
   <a class="spill" href="https://x.com/enishi_yui" target="_blank" rel="noopener noreferrer" aria-label="緣結 X (Twitter)">
     <span class="si" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span><span class="sl">X (Twitter)</span>
   </a>
+
+  <!-- 三面図・角色設定（點開看大圖）-->
+  <button class="sheetcard" type="button" id="sheetBtn" aria-haspopup="dialog" aria-controls="sheetLb" aria-label="打開緣結三面図角色設定大圖">
+    <img class="shot" src="assets/character-sheet-thumb.jpg" width="720" height="452" alt="緣結 三面図 角色設定預覽" loading="lazy" decoding="async">
+    <span class="row">
+      <span class="tx">
+        <span class="t" lang="ja">三面図・角色設定</span>
+        <span class="d">正面・側面・背面・配色｜設計 mola mola</span>
+      </span>
+      <span class="arw" aria-hidden="true">→</span>
+    </span>
+  </button>
 
   <!-- 斗內（StreamElements Tip）-->
   <a class="cta dc" href="https://streamelements.com/%E7%B8%81%E7%B5%90-enishiyui/tip" target="_blank" rel="noopener noreferrer" aria-label="斗內支援緣結">
@@ -270,5 +349,43 @@
     <div class="m">© 2026 緣結 ・ ENISHI YUI</div>
   </footer>
 </div>
+
+<!-- 三面図 燈箱 -->
+<div class="lb" id="sheetLb" role="dialog" aria-modal="true" aria-label="緣結 三面図 角色設定">
+  <div class="bar">
+    <div class="ttl" lang="ja">三面図 ・ キャラクターデザイン<small>角色設計：mola mola（@molamola0208）</small></div>
+    <button type="button" id="sheetZoom">放大</button>
+    <button type="button" id="sheetClose" aria-label="關閉">✕ 關閉</button>
+  </div>
+  <div class="scroller" id="sheetScroll"><img id="sheetImg" alt="緣結三面図：正面、側面、背面與髮型設定，附配色表" decoding="async"></div>
+  <div class="hint">點圖片可放大／縮小　・　按 Esc 或點背景關閉</div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('sheetLb'), img=document.getElementById('sheetImg'),
+      btn=document.getElementById('sheetBtn'), zoomBtn=document.getElementById('sheetZoom'),
+      closeBtn=document.getElementById('sheetClose'), scroller=document.getElementById('sheetScroll'),
+      SRC='assets/character-sheet.jpg';
+  function setZoom(on){
+    lb.classList.toggle('zoom', on);
+    zoomBtn.textContent = on ? '縮小' : '放大';
+    if(on){ scroller.scrollLeft=(scroller.scrollWidth-scroller.clientWidth)/2; scroller.scrollTop=0; }
+  }
+  function open(){
+    if(!img.getAttribute('src')) img.setAttribute('src', SRC);
+    lb.classList.add('on'); document.body.classList.add('lbopen'); setZoom(false); closeBtn.focus();
+  }
+  function close(){ lb.classList.remove('on'); document.body.classList.remove('lbopen'); setZoom(false); btn.focus(); }
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  zoomBtn.addEventListener('click', function(){ setZoom(!lb.classList.contains('zoom')); });
+  img.addEventListener('click', function(e){ e.stopPropagation(); setZoom(!lb.classList.contains('zoom')); });
+  lb.addEventListener('click', function(e){ if(e.target===lb||e.target===scroller) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&lb.classList.contains('on')) close(); });
+  // 滑鼠移入就先把大圖抓下來，點開不用等
+  btn.addEventListener('mouseenter', function(){ if(!img.getAttribute('src')) img.setAttribute('src', SRC); }, {once:true});
+})();
+</script>
 </body>
 </html>
