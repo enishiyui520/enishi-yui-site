@@ -20,14 +20,14 @@
 <meta property="og:title" content="緣結 VTuber ｜ えにし ゆい">
 <meta property="og:description" content="日籍台 V・日本結緣神 VTuber 緣結（えにし ゆい），台日友好。幫你繫起好緣分。YouTube / Discord 都在這。">
 <meta property="og:url" content="https://enishiyui520.github.io/enishi-yui-site/">
-<meta property="og:image" content="https://enishiyui520.github.io/enishi-yui-site/assets/og.png">
+<meta property="og:image" content="https://enishiyui520.github.io/enishi-yui-site/assets/og.png?v=20260922">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@enishi_yui">
 <meta name="twitter:title" content="緣結 VTuber ｜ えにし ゆい">
 <meta name="twitter:description" content="日籍台 V・日本結緣神 VTuber 緣結（えにし ゆい），台日友好。幫你繫起好緣分。">
-<meta name="twitter:image" content="https://enishiyui520.github.io/enishi-yui-site/assets/og.png">
+<meta name="twitter:image" content="https://enishiyui520.github.io/enishi-yui-site/assets/og.png?v=20260922">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,7 +46,7 @@
       "alternateName": ["えにし ゆい", "Enishi Yui", "緣結 えにし ゆい"],
       "description": "日籍台 V・日本の結緣神 VTuber。台日友好。幫你繫起好緣分。",
       "url": "https://enishiyui520.github.io/enishi-yui-site/",
-      "image": "https://enishiyui520.github.io/enishi-yui-site/assets/og.png",
+      "image": "https://enishiyui520.github.io/enishi-yui-site/assets/og.png?v=20260922",
       "jobTitle": "VTuber",
       "sameAs": [
         "https://www.youtube.com/@EnishiYui",
@@ -248,8 +248,8 @@
 <!-- 背景循環影片（靜音、無 BGM）-->
 <div class="bgv" aria-hidden="true">
   <video autoplay muted loop playsinline preload="metadata" poster="assets/bg-poster.jpg" disablepictureinpicture>
-    <source src="assets/bg-loop.webm" type="video/webm">
     <source src="assets/bg-loop.mp4" type="video/mp4">
+    <source src="assets/bg-loop.webm" type="video/webm">
   </video>
 </div>
 
@@ -385,6 +385,14 @@
   document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&lb.classList.contains('on')) close(); });
   // 滑鼠移入就先把大圖抓下來，點開不用等
   btn.addEventListener('mouseenter', function(){ if(!img.getAttribute('src')) img.setAttribute('src', SRC); }, {once:true});
+})();
+
+// 背景影片循環保險：Safari 偶爾不理 loop 屬性，播完停在最後一格；切回分頁也可能被暫停
+(function(){
+  var v=document.querySelector('.bgv video'); if(!v) return;
+  function play(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  v.addEventListener('ended', function(){ v.currentTime=0; play(); });
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden&&v.paused) play(); });
 })();
 </script>
 </body>
